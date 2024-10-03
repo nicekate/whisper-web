@@ -20,6 +20,7 @@ class PipelineFactory {
 
     static async getInstance(progress_callback = null) {
         if (this.instance === null) {
+            console.log("Loading model:", this.model); // Pe3a7
             this.instance = pipeline(this.task, this.model, {
                 quantized: this.quantized,
                 progress_callback,
@@ -149,6 +150,7 @@ const transcribe = async (
     }
 
     // Actually run transcription
+    console.log("Starting transcription with model:", modelName); // P9acd
     let output = await transcriber(audio, {
         // Greedy
         top_k: 0,

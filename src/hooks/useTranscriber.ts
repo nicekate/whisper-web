@@ -164,6 +164,8 @@ export function useTranscriber(): Transcriber {
                     audio = audioData.getChannelData(0);
                 }
 
+                console.log("Posting request to worker with audio data:", audio); // P11c6
+
                 webWorker.postMessage({
                     audio,
                     model,
